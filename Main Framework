@@ -1,1 +1,69 @@
+/*
+    Caleb Morales & Marcelo
+ */
+package moodmusic;
+import java.nio.file.*;
+import java.util.*;
+import java.io.*;
 
+/**
+ *
+ * @author clbmr
+ */
+public class MoodMusic {
+
+    /**
+     * @param args the command line arguments
+     */
+    
+    // This function wll display the menu
+    public static void DisplayMenu() {      
+        System.out.println("1:  Sad");
+        System.out.println("2:  Anxious");
+        System.out.println("3:  Bored");
+        System.out.println("9: Exit");
+        
+        Scanner sc = new Scanner(System.in);
+        int userInput = sc.nextInt();
+        
+        while (userInput != 9) {
+            switch (userInput) {
+                case 1:
+                    System.out.println("Sad");
+                    //SelectMood(sad);
+                    //break;
+                    return;
+                case 2:
+                    System.out.println("Anxious");
+                    //SelectMood(anxious);
+                    //break;
+                    return;
+                case 3:
+                    System.out.println("Bored");
+                    //SelectMood(bored);
+                    //break;
+                    return;
+                case 9:
+                    System.out.println("You quit");
+                    return;
+                default:
+                    System.out.println("That's not an input I understand, "
+                            + "let's try that again.");
+                    userInput = sc.nextInt();
+            }
+        }
+    }
+        
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Mood Suggester!");
+        System.out.println("Select a mood to get some music suggestions.");
+        
+        Path currentRelativePath = Paths.get("");
+        String s = currentRelativePath.toAbsolutePath().toString();
+        System.out.println("Current relative path is: " + s);
+        
+        DisplayMenu();
+        
+    }
+    
+}
