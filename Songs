@@ -1,1 +1,15 @@
+package moodmusic;
 
+import java.util.List;
+
+/**
+ *
+ * @author clbmr
+ */
+public class Songs {
+    public List<String> songList;
+    
+    public void AddSong(String song) {
+        songList.add(song);
+    }
+}
