@@ -1,1 +1,63 @@
+package moodmusic;
+import java.io.*;
 
+/**
+ *
+ * @author clbmr
+ */
+public class MoodSetter {
+    String fileName;
+    
+    public void SelectMood(String mood) {
+        
+        switch (mood) {
+            case "Sad":
+                System.out.println("Opening file...");
+                fileName = "sad.txt";
+                OpenFile(fileName);
+                break;
+            case "Anxious":
+                System.out.println("Opening file...");
+                fileName = "anxious.txt";
+                OpenFile(fileName);
+                break;
+            case "Bored":
+                System.out.println("Opening file...");
+                fileName = "bored.txt";
+                OpenFile(fileName);
+                break;
+        }
+    }
+    
+    public void OpenFile(String file) {
+
+        Songs addition = new Songs();
+        // This will reference one line at a time
+        String line = null;
+
+        try {
+            // FileReader reads text files in the default encoding.
+            FileReader fileReader = new FileReader(file);
+
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            while((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+                addition.AddSong(line);
+            }   
+
+            // Always close files.
+            bufferedReader.close();         
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println(
+                "Unable to open file '" + 
+                file + "'");                
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error reading file '" 
+                + file + "'");
+        }
+    }
+}
